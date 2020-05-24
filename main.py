@@ -9,4 +9,19 @@ def display_board():
     print(board[6] + ' | ', board[7] + ' | ', board[8])
 
 
-display_board()
+def play_game():
+
+    display_board()
+
+    handle_turn()
+
+
+def handle_turn():
+    position = int(input('Choose a position from 1-9: ')) - 1
+
+    board[position] = 'X'
+
+    display_board()
+
+
+play_game()
