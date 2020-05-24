@@ -37,7 +37,7 @@ def play_game():
 def handle_turn(player):
     position = int(input('Choose a position from 1-9: ')) - 1
 
-    board[position] = 'X'
+    board[position] = player
 
     display_board()
 
@@ -123,6 +123,11 @@ def check_tie():
 
 
 def flip_player():
+    global current_player
+    if current_player == 'X':
+        current_player = 'O'
+    elif current_player == 'O':
+        current_player = 'X'
     return
 
 
