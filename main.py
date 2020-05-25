@@ -11,13 +11,22 @@ board = ['-', '-', '-',
          '-', '-', '-']
 
 
+def interface():
+    print('=' * 33)
+    print('\t\tTic Tac Toe Game!')
+    print('=' * 33)
+
+
 def display_board():
-    print(board[0] + ' | ', board[1] + ' | ', board[2])
-    print(board[3] + ' | ', board[4] + ' | ', board[5])
-    print(board[6] + ' | ', board[7] + ' | ', board[8])
+    print('\t\t  ' + board[0] + ' | ', board[1] + ' | ', board[2])
+    print('\t\t ---+----+---')
+    print('\t\t  ' + board[3] + ' | ', board[4] + ' | ', board[5])
+    print('\t\t ---+----+---')
+    print('\t\t  ' + board[6] + ' | ', board[7] + ' | ', board[8])
 
 
 def play_game():
+    interface()
     display_board()
 
     while game_still_going:
@@ -28,14 +37,16 @@ def play_game():
         flip_player()
 
     if winner == 'X' or winner == 'O':
-        print(winner, ' wins!')
+        print('-' * 30)
+        print('\t   >>>', winner, ' wins!<<<')
+        print('-' * 30)
 
     elif winner is None:
         print('Tie!')
 
 
 def handle_turn(player):
-    print(player + "'s turn")
+    print('→ ' + player + "'s turn")
     position = input('Choose a position from 1-9: ')
 
     valid = False
@@ -61,7 +72,6 @@ def check_game_over():
 
 
 def check_win():
-
     global winner
 
     row_winner = check_rows()
@@ -80,7 +90,6 @@ def check_win():
 
 
 def check_rows():
-
     global game_still_going
 
     row_1 = board[0] == board[1] == board[2] != '-'
@@ -132,7 +141,6 @@ def check_diagonals():
 
 
 def check_tie():
-
     global game_still_going
 
     if '-' not in board:
